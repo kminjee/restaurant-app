@@ -1,0 +1,26 @@
+.list {
+    padding: 0;
+
+    .item {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+
+        .image {
+            width: 184px;
+            height: 184px;
+        }
+
+        .info {
+            width: 300px;
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            text-align: start;
+
+            .name {
+                font-size: 1rem;
+                font-weight: bold;
+            }
+        }
+    }
+}

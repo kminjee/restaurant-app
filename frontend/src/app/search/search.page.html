@@ -1,0 +1,73 @@
+<ion-content>
+  <ion-title class="title">오늘 뭐 먹지?</ion-title>
+  <ion-searchbar 
+    class="search" 
+    placeholder="예) 김밥, 찌개"
+    (ionInput)="search(searchBox.value)"
+    #searchBox
+  ></ion-searchbar>            
+  <div class="category">
+    <ion-button (click)="category('한식')">한식</ion-button>
+    <ion-button (click)="category('중식')">중식</ion-button>
+    <ion-button (click)="category('일식')">일식</ion-button>
+    <ion-button (click)="category('양식')">양식</ion-button>
+    <ion-button (click)="category('퓨전')">퓨전</ion-button>
+    <ion-button (click)="category('샐러드')">샐러드</ion-button>
+    <ion-button (click)="category('베이커리')">베이커리</ion-button>
+    <ion-button (click)="category('카페')">카페</ion-button>
+  </div>
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data…">
+      <div class="listbox">
+
+        <!-- 전체 목록 -->
+        <ul class="list" *ngIf="searchBox.value === '' && data === false">
+          <li class="item" *ngFor="let restaurant of restaurants">
+            <div class="image">
+              <img src="{{ restaurant.image }}">
+            </div>
+            <div class="info">
+              <div class="name">{{ restaurant.name }} <ion-icon name="bookmark-outline" class="bookmark"></ion-icon>
+              </div>
+              <div class="time">{{ restaurant.open }} - {{ restaurant.close }}</div>
+              <div class="location">{{ restaurant.location }}</div>
+              <ion-button class="detail-btn" (click)="onSelect(restaurant)">상세보기</ion-button>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 카테고리 목록 -->
+        <ul class="list" *ngIf="data === true">
+          <li class="item" *ngFor="let restaurant of category$ | async">
+            <div class="image">
+              <img src="{{ restaurant.image }}">
+            </div>
+            <div class="info">
+              <div class="name">{{ restaurant.name }} <ion-icon name="bookmark-outline" class="bookmark"></ion-icon>
+              </div>
+              <div class="time">{{ restaurant.open }} - {{ restaurant.close }}</div>
+              <div class="location">{{ restaurant.location }}</div>
+              <ion-button class="detail-btn" (click)="onSelect(restaurant)">상세보기</ion-button>
+            </div>
+          </li>
+        </ul>
+
+        <!-- 검색 결과 -->
+        <ul class="list" *ngIf="searchBox.value!==''">
+          <li class="item" *ngFor="let restaurant of restaurants$ | async">
+            <div class="image">
+              <img src="{{ restaurant.image }}">
+            </div>
+            <div class="info">
+              <div class="name">{{ restaurant.name }} <ion-icon name="bookmark-outline" class="bookmark"></ion-icon>
+              </div>
+              <div class="time">{{ restaurant.open }} - {{ restaurant.close }}</div>
+              <div class="location">{{ restaurant.location }}</div>
+              <ion-button class="detail-btn" (click)="onSelect(restaurant)">상세보기</ion-button>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </ion-infinite-scroll-content>
+</ion-content>

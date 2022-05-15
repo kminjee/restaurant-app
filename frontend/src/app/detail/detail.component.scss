@@ -1,0 +1,42 @@
+
+* {
+    color: #555;
+
+}
+.toolbar {
+    display: inline-flex;
+    width: 100%;
+
+    .title {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.detail {
+    margin: 2rem 0;
+    text-align: center;
+
+    .image {
+        width: 100%;
+        padding-bottom: 0.5rem;
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    .info {
+        font-size: 1.5rem;
+
+        div {
+            padding: 0.5rem 0;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 3rem;
+        }
+    }
+}

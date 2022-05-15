@@ -1,0 +1,20 @@
+<ion-infinite-scroll class="scroll">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data…">
+      <div class="listbox">
+        <ul class="list" *ngFor="let item of data">
+          <li class="item">
+            <div class="image">
+              <img src="{{ item.image }}">
+            </div>
+            <div class="info">
+              <div class="name">{{ item.name }}</div>
+              <div class="time">{{ item.open }} - {{ item.close }}</div>
+              <div class="location">{{ item.location }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

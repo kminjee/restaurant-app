@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button class="button"(click)="dismiss()">X</ion-button>
+      <ion-title class="title">상세보기</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="detail">
+    <div class="image">
+      <img src="{{ restaurant.image }}">
+    </div>
+    <div class="info">
+      <div class="name">{{ restaurant.name }}</div>
+      <div class="time">{{ restaurant.open }} - {{ restaurant.close }}</div>
+      <div class="location">{{ restaurant.location }}</div>
+      <div class="phone">{{ restaurant.phone }}</div>
+      <div class="star">{{ restaurantStar }} </div>
+      <div class="menu">{{ restaurant.hashtag }}</div>
+    </div>
+  </div>
+</ion-content>
